@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17142a">
+  <meta name="description" content="Steven Universe: Crystal Rebellion — a fan-made mobile-first 2D action RPG.">
+  <title>Steven Universe: Crystal Rebellion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="game-shell" aria-label="Steven Universe: Crystal Rebellion game">
+    <canvas id="game-canvas" aria-label="Game world" tabindex="0"></canvas>
+
+    <section id="main-menu" class="screen-panel" aria-labelledby="game-title">
+      <div class="title-kicker">A FAN-MADE 2D ACTION RPG</div>
+      <h1 id="game-title">STEVEN UNIVERSE<br><span>CRYSTAL REBELLION</span></h1>
+      <p class="menu-copy">Something ancient is calling from beneath the coast.</p>
+      <div class="menu-buttons">
+        <button id="new-game-button" class="primary-button">New Game</button>
+        <button id="continue-button">Continue</button>
+        <button id="settings-button">Settings</button>
+        <button id="credits-button">Credits</button>
+      </div>
+      <div id="menu-save-note" class="small-note">Your journey saves on this device.</div>
+      <div class="menu-gems" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section id="settings-panel" class="screen-panel sub-panel hidden" aria-labelledby="settings-title">
+      <h2 id="settings-title">Settings</h2>
+      <label class="setting-row">Sound effects <input id="sfx-volume" type="range" min="0" max="1" step="0.1" value="0.7"></label>
+      <label class="setting-row">Music <input id="music-volume" type="range" min="0" max="1" step="0.1" value="0.25"></label>
+      <label class="setting-row">Screen shake <input id="shake-toggle" type="checkbox" checked></label>
+      <label class="setting-row">Visual quality <select id="quality-setting"><option value="high">High</option><option value="balanced" selected>Balanced</option><option value="low">Battery saver</option></select></label>
+      <label class="setting-row">Touch button size <select id="control-size"><option value="compact">Compact</option><option value="normal" selected>Normal</option><option value="large">Large</option></select></label>
+      <button id="settings-back" class="primary-button">Back</button>
+      <button id="reset-save-button" class="danger-button">Reset Save Data</button>
+      <p class="small-note">Audio starts after your first tap, as required by mobile browsers.</p>
+    </section>
+
+    <section id="credits-panel" class="screen-panel sub-panel hidden" aria-labelledby="credits-title">
+      <h2 id="credits-title">Credits</h2>
+      <p><strong>Crystal Rebellion</strong> is an unofficial, fan-made browser game concept.</p>
+      <p>Built with HTML5 Canvas, CSS, JavaScript, procedural art and original synthesized placeholder audio.</p>
+      <p>Steven Universe and its characters belong to their respective rights holders. This project is not affiliated with or endorsed by Cartoon Network or Rebecca Sugar.</p>
+      <button id="credits-back" class="primary-button">Back</button>
+    </section>
+
+    <section id="pause-panel" class="screen-panel sub-panel hidden" aria-labelledby="pause-title">
+      <h2 id="pause-title">Paused</h2>
+      <button id="resume-button" class="primary-button">Resume</button>
+      <button id="pause-settings-button">Settings</button>
+      <button id="save-quit-button">Save &amp; Main Menu</button>
+    </section>
+
+    <section id="dialogue-panel" class="dialogue-panel hidden" aria-live="polite">
+      <div id="dialogue-avatar" class="dialogue-avatar">S</div>
+      <div class="dialogue-copy"><div id="dialogue-name">Steven</div><div id="dialogue-text">Dialogue goes here.</div></div>
+      <button id="dialogue-next" aria-label="Continue dialogue">Continue ▸</button>
+    </section>
+
+    <section id="result-panel" class="screen-panel sub-panel hidden" aria-live="polite">
+      <div class="title-kicker">MISSION COMPLETE</div>
+      <h2 id="result-title">A New Beginning</h2>
+      <p id="result-copy">The disturbance has quieted.</p>
+      <button id="result-continue" class="primary-button">Continue Adventure</button>
+      <button id="result-menu">Main Menu</button>
+    </section>
+
+    <section id="mobile-controls" class="mobile-controls" aria-label="Touch controls">
+      <div class="movement-controls">
+        <button class="control-button direction-button" data-action="left" aria-label="Move left">◀</button>
+        <button class="control-button direction-button" data-action="right" aria-label="Move right">▶</button>
+      </div>
+      <div class="action-controls">
+        <button class="control-button action-button" data-action="jump" aria-label="Jump">JUMP</button>
+        <button class="control-button action-button attack-button" data-action="attack" aria-label="Attack">ATK</button>
+        <button class="control-button action-button ability-button" data-action="ability" aria-label="Use special ability">GEM</button>
+        <button class="control-button action-button switch-button" data-action="switch" aria-label="Switch character">SWAP</button>
+        <button class="control-button action-button interact-button" data-action="interact" aria-label="Interact">TALK</button>
+      </div>
+    </section>
+
+    <button id="pause-touch-button" class="pause-touch-button" aria-label="Pause game">Ⅱ</button>
+    <div id="orientation-hint" class="orientation-hint hidden">For the best view, rotate your device to landscape ↻</div>
+    <div id="toast" class="toast hidden" role="status"></div>
+    <div id="fatal-error" class="fatal-error hidden" role="alert"></div>
+  </main>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
